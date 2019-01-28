@@ -24,8 +24,8 @@ java -jar game.jar
 ## Authors
 
 * **Pablo Hernández** - *Initial work* - [Pablunsky](https://github.com/Pablunsky)
-* **Ozmar Escobar** - *Initial work* - [Zantetsuken](https://github.com/ZantetsukenGT)
-* **José Veliz** - *Co worker* - [CyberVeliz](https://github.com/CyberVeliz)
+* **Ozmar Escobar** - *Initial work* - [ZantetsukenGT](https://github.com/ZantetsukenGT)
+* **José Veliz** - *Co worker* - [CiberVeliz](https://github.com/CiberVeliz)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
