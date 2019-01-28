@@ -21,8 +21,12 @@ public class Frame extends javax.swing.JFrame {
     public Frame() {
         
         initComponents();
-        Character c = new Character(100, 100, 2, "test.png");
+        Character c = new Character(100, 100, 100, 100, 2, "testr.png");
+        Underlay u = new Underlay("town.png");
+        
         LinkedList<Element> chars = new LinkedList<>();
+        
+        chars.add(u);
         chars.add(c);
         
         scope = new Scope(chars);

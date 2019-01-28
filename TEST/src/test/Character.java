@@ -5,6 +5,8 @@
  */
 package test;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author pablunsky
@@ -16,7 +18,9 @@ public class Character extends Element{
     
     double speed;
 
-    public Character(int x, int y, double maxspeed, String sprite) {
+    public Character(int x, int y, int width, int height, double maxspeed, String sprite) {
+        super(width, height);
+        
         this.sprite = new Sprite(sprite);
         this.x = x;
         this.y = y;
@@ -25,8 +29,12 @@ public class Character extends Element{
     }
 
     @Override
-    public Sprite Paint() {
-        return sprite;
+    public void Paint(Graphics gr) {
+        
+        gr.drawImage(sprite.img, x, y, null);
+        gr.drawRect(x, y, width, height);
+        
+        
     }
 
     @Override

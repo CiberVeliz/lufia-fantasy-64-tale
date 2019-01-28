@@ -5,10 +5,11 @@
  */
 package test;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.LinkedList;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -17,22 +18,21 @@ import javax.swing.JPanel;
  */
 public class Scope extends JPanel{
     
+    
     LinkedList<Element> elements;
 
     public Scope(LinkedList<Element> elements) {
         super();
+        
         this.elements = elements;
         
     }
     
     public void Refresh(Graphics gr){
         
+        
         for(Element e: elements){
-            
-            Sprite s  = e.Paint();
-            
-            gr.drawImage(s.img, e.x, e.y, null);
-            
+            e.Paint(gr);
         }
         
     }

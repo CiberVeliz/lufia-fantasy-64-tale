@@ -25,6 +25,7 @@ public class Sprite {
         
         try{
             img = ImageIO.read(new File(source));
+            
         }
         catch(IOException e){
             e.printStackTrace();

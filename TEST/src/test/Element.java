@@ -5,15 +5,24 @@
  */
 package test;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author pablunsky
  */
 public abstract class Element {
     
-    int x, y;
     
-    public abstract Sprite Paint();
+    int x, y, width, height;
+    
+    
+    public Element(int width, int height){
+        this.width = width;
+        this.height = height;
+    }
+    
+    public abstract void Paint(Graphics gr);
     
     public abstract void MoveXRIGHT();
     public abstract void MoveYUP();
