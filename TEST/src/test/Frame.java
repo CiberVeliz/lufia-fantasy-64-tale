@@ -7,7 +7,6 @@ package test;
 
 import com.sun.glass.events.KeyEvent;
 import java.util.LinkedList;
-import javax.swing.JPanel;
 
 /**
  *
