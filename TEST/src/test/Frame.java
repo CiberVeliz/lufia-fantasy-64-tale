@@ -5,7 +5,7 @@
  */
 package test;
 
-import com.sun.glass.events.KeyEvent;
+import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 /**
