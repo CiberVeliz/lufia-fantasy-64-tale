@@ -14,38 +14,35 @@ import java.util.LinkedList;
  */
 public class Underlay extends Element{
  
-    Sprite background;
     LinkedList<Wall> blocks;
 
     public Underlay(String bg) {
-        super(0, 0);
-        x = 0;
-        y = 0;
-        this.background = new Sprite(bg);
+        super(0, 0, bg);
+        this.movement = new Movement();
     }
 
     @Override
     public void Paint(Graphics gr) {
-        gr.drawImage(background.img, x, y, null);
+        gr.drawImage(getSprite(), movement.getCurrentPosX(), movement.getCurrentPosY(), null);
     }
 
     @Override
-    public void MoveXRIGHT() {
+    public void MoveRIGHT() {
         
     }
 
     @Override
-    public void MoveYUP() {
+    public void MoveUP() {
         
     }
 
     @Override
-    public void MoveXLEFT() {
+    public void MoveLEFT() {
         
     }
 
     @Override
-    public void MoveYDOWN() {
+    public void MoveDOWN() {
         
     }
 

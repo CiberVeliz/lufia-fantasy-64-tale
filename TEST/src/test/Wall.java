@@ -14,10 +14,8 @@ import java.awt.Graphics;
 public class Wall extends Element{
 
     public Wall(int x, int y, int width, int height){
-        super(width, height);
-        this.x = x;
-        this.y = y;
-                
+        super(width, height, null);
+        this.movement = new Movement(x,y);
     }
     
     @Override
@@ -27,22 +25,22 @@ public class Wall extends Element{
     }
 
     @Override
-    public void MoveXRIGHT() {
+    public void MoveRIGHT() {
         
     }
 
     @Override
-    public void MoveYUP() {
+    public void MoveUP() {
         
     }
 
     @Override
-    public void MoveXLEFT() {
+    public void MoveLEFT() {
         
     }
 
     @Override
-    public void MoveYDOWN() {
+    public void MoveDOWN() {
         
     }
 

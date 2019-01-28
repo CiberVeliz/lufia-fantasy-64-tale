@@ -45,14 +45,14 @@ public class Scope extends JPanel{
     
     public void Up(){
         for(Element e: elements){
-            e.MoveYUP();
+            e.MoveUP();
         }
     }
     
     
     public void Down(){
         for(Element e: elements){
-            e.MoveYDOWN();
+            e.MoveDOWN();
         }
     }
     
@@ -64,14 +64,14 @@ public class Scope extends JPanel{
     
     public void Left(){
         for(Element e: elements){
-            e.MoveXLEFT();
+            e.MoveLEFT();
         }
     }
     
     
     public void Right(){
         for(Element e: elements){
-            e.MoveXRIGHT();
+            e.MoveRIGHT();
         }
     }
     
