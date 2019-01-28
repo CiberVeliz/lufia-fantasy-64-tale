@@ -1,6 +1,6 @@
 # Lufia Fantasy 64 Tale
 
-Student RPG project, mainly to get some experience in multi-threaded applications
+Student RPG project, mainly to get some experience in multi-threaded applications, while applying best practices and design patterns
 
 ## Getting Started
 
