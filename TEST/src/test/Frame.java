@@ -20,15 +20,22 @@ public class Frame extends javax.swing.JFrame {
     
     Scope scope;
     
-    final static int LEFT_CONSTRAINT = 0;
-    final static int RIGHT_CONSTRAINT = 1318;
-    final static int BOTTOM_CONSTRAINT = 766;
-    final static int TOP_CONSTRAINT = 0;
+    static int LEFT_CONSTRAINT;
+    static int RIGHT_CONSTRAINT;
+    static int BOTTOM_CONSTRAINT;
+    static int TOP_CONSTRAINT;
     
     public Frame() {
         
         initComponents();
-        Character c = new Character(10, 0, 500, 500, "testr.png");
+        
+        
+        LEFT_CONSTRAINT = 0;
+        RIGHT_CONSTRAINT = getWidth() - 200;
+        BOTTOM_CONSTRAINT = getHeight() - 200;
+        TOP_CONSTRAINT = 0;
+        
+        Character c = new Character(100, 100, 100, 100, "testr.png");
         Underlay u = new Underlay("town.png");
         
         LinkedList<Element> chars = new LinkedList<>();
