@@ -6,7 +6,10 @@
 package test;
 
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,6 +22,7 @@ public class Frame extends javax.swing.JFrame {
      */
     
     Scope scope;
+    private HashMap keys;
     
     static int LEFT_CONSTRAINT;
     static int RIGHT_CONSTRAINT;
@@ -38,8 +42,7 @@ public class Frame extends javax.swing.JFrame {
         Character c = new Character(500, 500, 100, 100, "testr.png");
         Underlay u = new Underlay("town.png");
         
-        
-        
+        keys = new HashMap();
         scope = new Scope(c,u);
         this.setContentPane(scope);
         
@@ -76,21 +79,16 @@ public class Frame extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1468, 816));
-        addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                Control(evt);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Frame.this.keyPressed(evt);
             }
-            public void keyReleased(java.awt.event.KeyEvent evt)
-            {
-                Control(evt);
-                Stop(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Frame.this.keyReleased(evt);
             }
         });
 
@@ -107,10 +105,11 @@ public class Frame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Control(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Control
-        
-        switch (evt.getKeyCode()) {
+    
+    private void Control(java.awt.event.KeyEvent evt)
+    {
+        switch (evt.getKeyCode()) 
+        {
             case KeyEvent.VK_UP:
                 scope.Up();
                 break;
@@ -126,15 +125,49 @@ public class Frame extends javax.swing.JFrame {
             default:
                 break;
         }
+    }
+    
+    private void keyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyPressed
+                
+        Thread t = new Thread(new Runnable()
+        {
+            @Override
+            public void run() 
+            {
+                while(true)
+                {   
+                    Control(evt);
+                    
+                    try
+                    {
+                        Thread.sleep(17);
+                    }
+                    catch(InterruptedException e)
+                    {
+                        return;
+                    }
+                }
+            }
+        });
+        
+        int code = evt.getKeyCode();
+        
+        if(keys.get(code) == null)
+        {
+            keys.put(code, t);
+            t.start();
+        }
+    }//GEN-LAST:event_keyPressed
 
+    private void keyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyReleased
         
-    }//GEN-LAST:event_Control
-
-    private void Stop(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Stop
+        Thread t = (Thread)keys.remove(evt.getKeyCode());
         
-        scope.Stop();
-        
-    }//GEN-LAST:event_Stop
+        if(t != null)
+        {
+            t.interrupt();
+        }
+    }//GEN-LAST:event_keyReleased
 
     
     
