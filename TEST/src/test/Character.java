@@ -6,6 +6,8 @@
 package test;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.util.LinkedList;
 
 /**
  *
@@ -13,17 +15,19 @@ import java.awt.Graphics;
  */
 public class Character extends Element{
     
+    Rectangle Bounds;
+    
     public Character(int x, int y, int width, int height, String sprite) {
         super(width, height, sprite);
         this.movement = new Movement(x, y);
+        Bounds = new Rectangle(movement.getCurrentPosX(), movement.getCurrentPosY(), width, height);
     }
 
     @Override
     public void Paint(Graphics gr) {
         
         gr.drawImage(getSprite(), movement.getCurrentPosX(), movement.getCurrentPosY(), null);
-        gr.drawRect(movement.getCurrentPosX(), movement.getCurrentPosY(), width, height);
-        
+        Bounds = new Rectangle(movement.getCurrentPosX(), movement.getCurrentPosY(), width, height);
         
     }
 

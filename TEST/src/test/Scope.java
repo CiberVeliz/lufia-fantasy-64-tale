@@ -18,22 +18,20 @@ import javax.swing.JPanel;
  */
 public class Scope extends JPanel{
     
-    
-    LinkedList<Element> elements;
+    Character character;
+    Underlay underlay;
 
-    public Scope(LinkedList<Element> elements) {
+    public Scope(Character c, Underlay u) {
         super();
-        
-        this.elements = elements;
+        this.character = c;
+        this.underlay = u;
         
     }
     
     public void Refresh(Graphics gr){
         
-        
-        for(Element e: elements){
-            e.Paint(gr);
-        }
+        underlay.Paint(gr);
+        character.Paint(gr);
         
     }
     
@@ -44,35 +42,50 @@ public class Scope extends JPanel{
     }
     
     public void Up(){
-        for(Element e: elements){
-            e.MoveUP();
+        
+        character.MoveUP();
+        if(character.Bounds.intersects(underlay.Top)){
+            underlay.MoveUP();
+            
         }
     }
     
     
     public void Down(){
-        for(Element e: elements){
-            e.MoveDOWN();
+        
+        character.MoveDOWN();
+        if(character.Bounds.intersects(underlay.Bottom)){
+            underlay.MoveDOWN();
         }
+        
     }
     
     public void Stop(){
-        for(Element e: elements){
-            e.Stop();
-        }
+        
+        character.Stop();
+        underlay.Stop();
+        
     }
     
     public void Left(){
-        for(Element e: elements){
-            e.MoveLEFT();
+        
+        character.MoveLEFT();
+        
+        if(character.Bounds.intersects(underlay.Left)){
+            underlay.MoveLEFT();
         }
+        
     }
     
     
     public void Right(){
-        for(Element e: elements){
-            e.MoveRIGHT();
+        
+        character.MoveRIGHT();
+        
+        if(character.Bounds.intersects(underlay.Right)){
+            underlay.MoveRIGHT();
         }
+        
     }
     
 }

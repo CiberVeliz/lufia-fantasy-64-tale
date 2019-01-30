@@ -6,6 +6,7 @@
 package test;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.util.LinkedList;
 
 /**
@@ -15,10 +16,21 @@ import java.util.LinkedList;
 public class Underlay extends Element{
  
     LinkedList<Wall> blocks;
-
+    
+    Rectangle Top, Bottom, Left, Right;
+    
+    int x, y;
+    
     public Underlay(String bg) {
         super(0, 0, bg);
         this.movement = new Movement();
+        
+        Bottom = new Rectangle(Frame.LEFT_CONSTRAINT, Frame.BOTTOM_CONSTRAINT, 5000, 1);
+        Top = new Rectangle(Frame.LEFT_CONSTRAINT, Frame.TOP_CONSTRAINT, 5000, 1);
+        Left = new Rectangle(Frame.LEFT_CONSTRAINT, Frame.TOP_CONSTRAINT, 1, 5000);
+        Right = new Rectangle(Frame.RIGHT_CONSTRAINT, Frame.TOP_CONSTRAINT, 1, 5000);
+        
+        
     }
 
     @Override
@@ -28,22 +40,22 @@ public class Underlay extends Element{
 
     @Override
     public void MoveRIGHT() {
-        
+        movement.setCurrentPosX(movement.getCurrentPosX()-3);
     }
 
     @Override
     public void MoveUP() {
-        
+        movement.setCurrentPosY(movement.getCurrentPosY()+3);
     }
 
     @Override
     public void MoveLEFT() {
-        
+        movement.setCurrentPosX(movement.getCurrentPosX()+3);
     }
 
     @Override
     public void MoveDOWN() {
-        
+        movement.setCurrentPosY(movement.getCurrentPosY()-3);
     }
 
     @Override

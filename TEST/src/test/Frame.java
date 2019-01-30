@@ -30,20 +30,17 @@ public class Frame extends javax.swing.JFrame {
         initComponents();
         
         
-        LEFT_CONSTRAINT = 0;
-        RIGHT_CONSTRAINT = getWidth() - 200;
-        BOTTOM_CONSTRAINT = getHeight() - 200;
-        TOP_CONSTRAINT = 0;
+        LEFT_CONSTRAINT = 200;
+        RIGHT_CONSTRAINT = getWidth() - 400;
+        BOTTOM_CONSTRAINT = getHeight() - 400;
+        TOP_CONSTRAINT = 200;
         
-        Character c = new Character(100, 100, 100, 100, "testr.png");
+        Character c = new Character(500, 500, 100, 100, "testr.png");
         Underlay u = new Underlay("town.png");
         
-        LinkedList<Element> chars = new LinkedList<>();
         
-        chars.add(u);
-        chars.add(c);
         
-        scope = new Scope(chars);
+        scope = new Scope(c,u);
         this.setContentPane(scope);
         
         StartAnim();
