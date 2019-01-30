@@ -17,10 +17,18 @@ public class Frame extends javax.swing.JFrame {
     /**
      * Creates new form Frame
      */
+    
+    Scope scope;
+    
+    final static int LEFT_CONSTRAINT = 0;
+    final static int RIGHT_CONSTRAINT = 1318;
+    final static int BOTTOM_CONSTRAINT = 766;
+    final static int TOP_CONSTRAINT = 0;
+    
     public Frame() {
         
         initComponents();
-        Character c = new Character(100, 100, 100, 100, 2, "testr.png");
+        Character c = new Character(10, 0, 500, 500, "testr.png");
         Underlay u = new Underlay("town.png");
         
         LinkedList<Element> chars = new LinkedList<>();
@@ -34,8 +42,6 @@ public class Frame extends javax.swing.JFrame {
         StartAnim();
         
     }
-    
-    Scope scope;
 
     public void StartAnim(){
         
@@ -45,7 +51,7 @@ public class Frame extends javax.swing.JFrame {
                 while(true){
                     scope.repaint();
                     try{
-                        Thread.sleep(33);
+                        Thread.sleep(17);
                     }
                     catch(Exception e){
                         e.printStackTrace();
@@ -66,14 +72,19 @@ public class Frame extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+        setPreferredSize(new java.awt.Dimension(1468, 816));
+        addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
                 Control(evt);
             }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
+            public void keyReleased(java.awt.event.KeyEvent evt)
+            {
                 Control(evt);
                 Stop(evt);
             }

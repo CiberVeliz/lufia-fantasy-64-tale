@@ -13,67 +13,43 @@ import java.awt.Graphics;
  */
 public class Character extends Element{
     
-    Sprite sprite;
-    double maxspeed;
-    
-    double speed;
-
-    public Character(int x, int y, int width, int height, double maxspeed, String sprite) {
-        super(width, height);
-        
-        this.sprite = new Sprite(sprite);
-        this.x = x;
-        this.y = y;
-        this.maxspeed = maxspeed;
-        speed = 1;
+    public Character(int x, int y, int width, int height, String sprite) {
+        super(width, height, sprite);
+        this.movement = new Movement(x, y);
     }
 
     @Override
     public void Paint(Graphics gr) {
         
-        gr.drawImage(sprite.img, x, y, null);
-        gr.drawRect(x, y, width, height);
+        gr.drawImage(getSprite(), movement.getCurrentPosX(), movement.getCurrentPosY(), null);
+        gr.drawRect(movement.getCurrentPosX(), movement.getCurrentPosY(), width, height);
         
         
     }
 
     @Override
-    public void MoveXRIGHT() {
-        if(speed < maxspeed){
-            speed += 0.01;
-        }
-        x += 10 * speed;
+    public void MoveRIGHT() {
+        movement.moveRight();
     }
 
     @Override
-    public void MoveYUP() {
-        
-        if(speed < maxspeed){
-            speed += 0.01;
-        }
-        y -= 10 * speed;
-        
+    public void MoveUP() {
+        movement.moveUp();
     }
 
     @Override
-    public void MoveXLEFT() {
-        if(speed < maxspeed){
-            speed += 0.01;
-        }
-        x -= 10 * speed;
+    public void MoveLEFT() {
+        movement.moveLeft();
     }
 
     @Override
-    public void MoveYDOWN() {
-        if(speed < maxspeed){
-            speed += 0.01;
-        }
-        y += 10 * speed;
+    public void MoveDOWN() {
+        movement.moveDown();
     }
 
     @Override
     public void Stop() {
-        speed = 1;
+        movement.stop();
     }
     
 }

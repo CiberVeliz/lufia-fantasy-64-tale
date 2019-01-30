@@ -14,13 +14,31 @@ import javax.imageio.ImageIO;
  *
  * @author pablunsky
  */
-public class Sprite {
-    
+public class Sprite
+{
+
     String source;
     BufferedImage img;
 
-    public Sprite(String source) {
-    
+    public Sprite(String source)
+    {
+
+        this.source = source;
+
+        try
+        {
+            img = ImageIO.read(new File(source));
+
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void SetSprite(String source)
+    {
+        
         this.source = source; 
         
         try{
@@ -30,10 +48,6 @@ public class Sprite {
         catch(IOException e){
             e.printStackTrace();
         }
-        
     }
-    
-    
-    
-    
+
 }

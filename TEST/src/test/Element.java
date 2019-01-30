@@ -6,6 +6,7 @@
 package test;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 /**
  *
@@ -14,21 +15,31 @@ import java.awt.Graphics;
 public abstract class Element {
     
     
-    int x, y, width, height;
+    int width, height;
+    Sprite sprite;
+    Movement movement;
     
     
-    public Element(int width, int height){
+    public Element(int width, int height, String sprite){
         this.width = width;
         this.height = height;
+        this.sprite = new Sprite(sprite);
+        
+        this.movement = null;
+    }
+    
+    public BufferedImage getSprite()
+    {
+        return sprite.img;
     }
     
     public abstract void Paint(Graphics gr);
     
-    public abstract void MoveXRIGHT();
-    public abstract void MoveYUP();
+    public abstract void MoveRIGHT();
+    public abstract void MoveUP();
     
-    public abstract void MoveXLEFT();
-    public abstract void MoveYDOWN();
+    public abstract void MoveLEFT();
+    public abstract void MoveDOWN();
     
     public abstract void Stop();
     
